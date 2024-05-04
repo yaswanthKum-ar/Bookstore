@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Upload Author";
+}
+<h2>Upload Authors from Excel</h2>
+<div>
+    <form asp-action="UploadExcel" asp-controller="Author" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Choose an xlsv file</label>
+            <input class="form-control" type="file" name="excelfile" id="formFile">
+            <div class="alert-danger">@ViewBag.Errormessage</div>
+            <div class="alert-success">@ViewBag.message</div>
+
+        </div>
+        <div >
+            <button type="submit" class="btn btn-success">Upload</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookstore - @ViewData["Title"]</title>
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"/>*@
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">BookStore</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="/Genre/Add" class="nav-link">Genre</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Author/Add" class="nav-link">Author</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Publisher/Add" class="nav-link">Publisher</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Book/Add" class="nav-link">Books</a>
+            </li>
+
+        
+        </ul>
+        <ul class="navbar-nav mr-auto float-right">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item btn-outline-light">@User.Identity.Name</li>
+                <li class="nav-item btn-outline-danger"><a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a></li>
+            }
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!--<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    <!--<script type="text/javascript" src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>-->
+    @await RenderSectionAsync("Scripts", required:false)
+</body>
+</html>

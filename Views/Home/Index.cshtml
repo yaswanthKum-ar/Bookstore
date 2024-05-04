@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Bookstore</h1>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-dark">Register as a new user</a>
+    <a asp-controller="Account" asp-action="Login" class="btn btn-dark">Login as Existing user</a>
+    
+
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

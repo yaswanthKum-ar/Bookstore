@@ -1,0 +1,77 @@
+﻿@model BookStorewithCRUD.DTO.RegisterDTO
+@{
+    ViewBag.Title = "Register";
+}
+<div class="bg-light font-weight-bolder">
+    <span>Books</span>
+    <i class="fade"></i><br />
+    <span>Register</span>
+</div>
+<div class="container pt-5">
+    Already Register? 
+    <div class="col-md-6">
+        <a asp-action="Login" asp-controller="Account">LOGIN</a>
+        <form asp-action="Register" asp-controller="Account" method="post">
+            <div class="form-group">
+                <label asp-for="PersonName">Name</label>
+                <input asp-for="PersonName" class="form-control" />
+                <span asp-validation-for="PersonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" class="form-control" />
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">ConfirmPassword</label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone">Phone</label>
+                <input asp-for="Phone" class="form-control col-md-8" />
+
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="userType">User Type</label>
+                <input type="radio" asp-for="userType" id="User" value="User" checked="checked"  />
+                <label for="User">User</label>
+
+                <input type="radio" asp-for="userType" id="Admin" value="Admin"  />
+                <label for="Admin">Admin</label>
+
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group pt-3">
+                <button type="submit" class="btn btn-dark">Register</button>
+            </div>
+
+            <div asp-validation-summary="All" class="text-danger">
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="text-danger">
+                        <ul>
+                            @foreach (string error in ViewBag.Errors)
+                            {
+                                <li>@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>

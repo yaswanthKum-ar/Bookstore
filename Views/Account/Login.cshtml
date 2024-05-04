@@ -1,0 +1,49 @@
+﻿@model BookStorewithCRUD.DTO.LoginDTO
+@{
+    ViewBag.Title = "Login";
+}
+<div class="bg-light font-weight-bolder">
+    <span>Books</span>
+    <i class="fade"></i><br />
+    <span>Login</span>
+</div>
+<div class="container pt-5">
+    New User Register Here!
+    <div class="col-md-6">
+        <a asp-action="Register" asp-controller="Account" class="btn-outline-success">REGISTER</a>
+        <form asp-action="Login" asp-controller="Account" method="post" asp-route-ReturnUrl="@Context.Request.Query["ReturnUrl"]">
+            
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" class="form-control" />
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group pt-3">
+                <button type="submit" class="btn btn-dark">Login</button> 
+            </div>
+
+            <div asp-validation-summary="All" class="text-danger">
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="text-danger">
+                        <ul>
+                            @foreach (string error in ViewBag.Errors)
+                            {
+                                <li>@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
